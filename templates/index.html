@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    
+    <title>Language Translator</title>
+    
+
+    <style>
+    .navbar{
+        box-shadow: 0px 8px 8px -6px rgba(0,0,0,.5);
+    }
+    a{
+        color: white !important;
+        text-decoration: none !important;
+    }
+    ul{
+        list-style-type: none;
+    }
+    form, .form-group {
+        margin:20px;
+        padding: 20px;
+    }
+    .trhead{
+        margin-left: 40px !important;
+        margin-top: 30px !important;
+    }
+    </style>
+
+</head>
+<body>
+  
+    <div class="shadow p-3 mb-5 bg-white rounded">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Language Translator</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/translator">Translator</a></li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+
+    {% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <br>
+                <br>
+                <h1>Want to explore new languages?</h1>
+                <blockquote>
+                    <p>Translation apps are awesome. It basically means you never have to learn another language unless you really want to. They help people communicate without a human translator or spending months learning a language. Most use-cases involve translating something you see on social media, although most social media sites have built-in translations now.</p>
+                    <footer>Android Authority</footer>
+                </blockquote>
+                <ul>
+                    <li>
+                        <p style="font-weight:bold; font-size: 20px; float: left;">Wanna try it out?</p>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-info btn-lg" style="margin-left: 20px;" onclick = "window.location.href = '/translator';">Translate</button>
+                    </li>
+                </ul>
+                 
+                
+            </div>
+            <div class="col-md-4">
+                <br>
+                <br>
+                <img src="../static/img/download.png" alt="">
+            </div>
+        </div>
+        
+    </div>
+    {% endblock %}
+  
+</body>
+</html>

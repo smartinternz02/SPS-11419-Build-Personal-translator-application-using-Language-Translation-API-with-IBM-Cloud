@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+
+{% block content %}
+<!-- https://vegibit.com/how-to-use-forms-in-python-flask/ -->
+    <h2 class="trhead">Enter phrase to translate it</h2>
+    <form action="translate" method="post">
+        <div class="form-group row">
+            <!-- https://www.encodedna.com/javascript/populate-select-dropdown-list-with-json-data-using-javascript.htm -->
+          <label for="type" class="col-sm-2 col-form-label">Target Language</label>
+            <select class="form-control" name="type" required>
+                <option value="">Select Language</option>
+            </select>
+        </div>
+        <div class="form-group row">
+          <label for="output" class="col-sm-2 col-form-label">Input Text</label>
+            <textarea class="form-control" name="output" rows="4" placeholder="I love my family" required></textarea>
+        </div>
+        <br>
+        <input type="submit" class="btn btn-info" value="Translate">
+    </form>
+
+
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript">
+    window.onload = populateSelect();
+        function populateSelect() {
+    
+            // Create XMLHttpRequest object, with GET method.
+            var xhr = new XMLHttpRequest(), 
+            method = 'GET',
+            overrideMimeType = 'application/json',
+            url = '/static/sample.json';  // Add the file URL.
+            
+            xhr.open(method, url, true);
+            
+            xhr.onreadystatechange = function () {
+                console.log(xhr.readyState,xhr.status);
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            
+            // Parse JSON data.
+            var lang = JSON.parse(xhr.responseText);
+            //console.log(lang);
+            
+            // https://www.w3schools.com/jsref/met_doc_getelementsbyname.asp
+            var ele = document.getElementsByName('type')[0];
+            for (var i = 0; i < lang.length; i++) {
+                // Bind data to <select> element.
+                ele.innerHTML = ele.innerHTML +
+                '<option value="' + lang[i].code + '">' + lang[i].name + '</option>';
+            }
+            }
+            };
+            
+            xhr.send();
+        }
+            
+    </script>
+    
+{% endblock content %}

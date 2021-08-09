@@ -1,5 +1,6 @@
 # returns a list of languages supported by the translator service
-import requests 
+import requests
+import json
 
 url = "https://language-translation.p.rapidapi.com/translateLanguage/supported-language"
 headers = { 

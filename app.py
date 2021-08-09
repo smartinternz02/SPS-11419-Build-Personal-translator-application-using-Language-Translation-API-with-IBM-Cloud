@@ -21,7 +21,6 @@ def translator():
 def translate():
     lang = request.form['type']
     out = request.form['output']
-    print(out)
     ttext = findLang(lang,out)
     return render_template('translate.html',translated = ttext)
 
@@ -29,9 +28,8 @@ def translate():
 def findLang(lang,out):
     url = "https://language-translation.p.rapidapi.com/translateLanguage/translate"
 
-    payyload = "{\r\"text\":\""+out+"\"," + "\r\"type\":\"plain\"," + "\r\target\":\""+lang+"\"\r}"
-    print(payload)
-                   
+    payload = "{\r\"text\":\""+out+"\"," + "\r\"type\":\"plain\"," + "\r\"target\":\""+lang+"\"\r}"
+
     headers = {
         "content-type": "application/json",
         'x-rapidapi-key': "6baae6a51fmsha48ab291ec53a9fp1b09b7jsn9b56d5c35aa3",
@@ -39,7 +37,7 @@ def findLang(lang,out):
         } 
 
     response = requests.request("POST", url, headers=headers, data=payload)
-    print(response.text)
+    return response.json()['translatedText']
 
 
   
