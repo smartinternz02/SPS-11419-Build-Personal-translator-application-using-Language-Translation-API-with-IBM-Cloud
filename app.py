@@ -2,6 +2,8 @@
 from flask import Flask, request, render_template
 import re
 import requests
+from gevent.pywsgi import WSGIServer
+import os
 
 app = Flask(__name__)
 
@@ -39,7 +41,11 @@ def findLang(lang,out):
     response = requests.request("POST", url, headers=headers, data=payload)
     return response.json()['translatedText']
 
-
+port = os.getenv('VCAP_APP_PORT','8080')
   
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.secret_key = os.urandom(12)
+    app.run(debug = True, host='0.0.0.0', port=port)
+
+# https://github.com/IBM-Cloud/get-started-python
+# helped in final deploying to ibm cloud

@@ -1,0 +1,7 @@
+---
+applications:
+
+- name: Python Flask App GPOFM 2021-08-09
+  random-route: true
+  memory: 512M
+  disk_quota: 1.5G
