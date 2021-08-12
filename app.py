@@ -4,6 +4,7 @@ import re
 import requests
 from gevent.pywsgi import WSGIServer
 import os
+import config
 
 app = Flask(__name__)
 
@@ -34,7 +35,7 @@ def findLang(lang,out):
 
     headers = {
         "content-type": "application/json",
-        'x-rapidapi-key': "6baae6a51fmsha48ab291ec53a9fp1b09b7jsn9b56d5c35aa3",
+        'x-rapidapi-key': config.apikey,
         'x-rapidapi-host': "language-translation.p.rapidapi.com"
         } 
 
